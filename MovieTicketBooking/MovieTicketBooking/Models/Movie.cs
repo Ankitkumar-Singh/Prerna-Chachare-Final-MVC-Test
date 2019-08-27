@@ -20,7 +20,8 @@ namespace MovieTicketBooking.Models
             this.MovieShows = new HashSet<MovieShow>();
             this.Bookings = new HashSet<Booking>();
         }
-    
+
+        [Display(Name = "Movie Name")]
         public int MovieId { get; set; }
 
         [Required]
