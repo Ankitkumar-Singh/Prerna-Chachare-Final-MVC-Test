@@ -21,7 +21,7 @@
 
 * User Login -
 
-User 1 - Email - snehal@aress.net  
+User 1 - Email - snehal_chavan@aressnetworks.net  
          Password - Snehal@123
          
 User 2 - Email - shreya.shejwalkar@aressindia.net  
