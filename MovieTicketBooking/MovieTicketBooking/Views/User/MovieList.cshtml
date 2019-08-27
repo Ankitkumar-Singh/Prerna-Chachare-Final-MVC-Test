@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MovieTicketBooking.Models.Movie>
+
+@{
+    ViewBag.Title = "MovieList";
+}
+
+<div class="container my-5 py-3">
+    @Html.ActionLink("Show List", "ShowList", "User", new { @class = "btn btn-success mb-2 float-right"})
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieImage)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketPrice)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.MovieImage)" alt="@Html.Raw(item.MovieName)" height="120" width="100">
+                </td>
+            </tr>
+        }
+    </table>
+</div>

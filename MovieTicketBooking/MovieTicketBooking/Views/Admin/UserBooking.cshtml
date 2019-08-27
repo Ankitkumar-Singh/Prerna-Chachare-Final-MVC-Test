@@ -1,0 +1,39 @@
+﻿@model MovieTicketBooking.Models.BookingSeatModel
+
+@using MovieTicketBooking.Models;
+
+@{
+    ViewBag.Title = "User Booking";
+}
+
+<div class="container my-5 py-3">
+    <h2>User Bookings</h2>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>ShowTime</th>
+            <th>Movie Name</th>
+            <th>Ticket Price</th>
+            <th>Seat No.</th>
+        </tr>
+
+        @foreach (Booking booking in Model.Bookings)
+        {
+            <tr>
+                <td>@booking.User.Name</td>
+                <td>@booking.Show.ShowTime</td>
+                <td>@booking.Movie.MovieName</td>
+                <td>@booking.Movie.TicketPrice</td>
+                <td>
+                    @foreach (SeatBooking seatBooking in Model.SeatBookings)
+                    {
+                        if (seatBooking.BookingId == booking.BookingId)
+                        {
+                            @seatBooking.Seat.SeatNo <span>,</span>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>

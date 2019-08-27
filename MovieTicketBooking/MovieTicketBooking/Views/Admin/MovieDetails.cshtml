@@ -1,0 +1,55 @@
+﻿@model MovieTicketBooking.Models.Movie
+
+@{
+    ViewBag.Title = "Movie Details";
+}
+
+<div class="container my-5 py-3">
+    <h4>Movie Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieImage)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.MovieImage)" width="120" height="140" />
+        </dd>
+
+    </dl>
+
+    @Html.ActionLink("Back to Movie List", "MovieList", "Admin", new { @class = "btn btn-info" })
+</div>
+

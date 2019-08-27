@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MovieTicketBooking.Models.MovieShow>
+
+@{
+    ViewBag.Title = "Show List";
+}
+
+<div class="container my-5 py-3">
+    <h2>Show Details</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie.MovieName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Show.ShowTime)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.Show.ShowTime >= DateTime.Now.TimeOfDay)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Movie.MovieName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Show.ShowTime)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Select Seats", "SelectSeats", new { showId = item.ShowId, movieId = item.MovieId }, new { @class = "btn btn-warning" })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+</div>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/Images/favicon.png">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <title>Movie Ticket Booking</title>
+</head>
+<body>
+    <div class="navbar navbar-expand-md bg-dark navbar-dark w-100">
+        @Html.ActionLink("Book-A-Movie", "Home", "Auth", new { area = "" }, new { @class = "navbar-brand" })
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                @if (User.IsInRole("User"))
+                {
+                    @Html.Partial("_User")
+                }
+                else if (User.IsInRole("Admin"))
+                {
+                    @Html.Partial("_Admin")
+                }
+                else
+                {
+                    @Html.Partial("_Home")
+                }
+            </ul>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <footer class="bg-dark text-center text-white py-3 w-100 fixed-bottom">
+        &copy; 2019 Movie Ticket Booking
+    </footer>
+
+</body>
+</html>

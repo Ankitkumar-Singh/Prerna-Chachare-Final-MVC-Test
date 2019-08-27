@@ -1,0 +1,46 @@
+﻿@model MovieTicketBooking.Models.BookingSeatModel
+
+@using MovieTicketBooking.Models;
+
+@{
+    ViewBag.Title = "My Booking";
+}
+
+<div class="container my-5 py-3">
+    <h2>My Bookings</h2>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Show Time</th>
+            <th>Movie Name</th>
+            <th>Ticket Price</th>
+            <th>Seat No.</th>
+            <th></th>
+        </tr>
+
+        @foreach (Booking booking in Model.Bookings)
+        {
+            if (booking.UserId == Convert.ToInt32(Session["UserId"]))
+            {
+                <tr>
+                    <td>@booking.User.Name</td>
+                    <td>@booking.Show.ShowTime</td>
+                    <td>@booking.Movie.MovieName</td>
+                    <td>@booking.Movie.TicketPrice</td>
+                    <td>
+                        @foreach (SeatBooking seatBooking in Model.SeatBookings)
+                        {
+                            if (seatBooking.BookingId == booking.BookingId)
+                            {
+                                @seatBooking.Seat.SeatNo <span>,</span>
+                            }
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Cancel Booking", "CancelBooking", new { id = booking.BookingId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>

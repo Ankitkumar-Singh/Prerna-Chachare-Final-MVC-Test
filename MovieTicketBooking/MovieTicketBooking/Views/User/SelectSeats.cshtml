@@ -1,0 +1,37 @@
+﻿@model MovieTicketBooking.Models.Seat
+
+@{
+    ViewBag.Title = "Select Seats";
+}
+
+<div class="container my-5 py-3">
+    @using (Html.BeginForm("SelectSeats", "User", FormMethod.Post))
+    {
+        <div class="form-horizontal">
+            <h4>Book your Seat</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <label class="font-weight-bold">Select Your Seats</label>
+            <ul class="list-group mb-4" id="seatsList">
+                <li class="list-group-item">
+                    <div class="row">
+                        @foreach (var item in ViewBag.SeatNo)
+                        {
+                            <div class="col-md-1">
+                                <input type="checkbox" id="SeatNo" name="SeatNo" value="@item.SeatId" />
+                                <label for="@item.SeatId">@item.SeatNo</label>
+                            </div>
+                        }
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirm Seats" class="btn btn-info" />
+            </div>
+        </div>
+    }
+</div>
