@@ -1,7 +1,7 @@
 # Prerna-Chachare-Final-MVC-Test
 
 
-##User
+## User
 
 * User can see the available shows for booking including timings.
 * User can book the tickets for the show with seat allocations. Past shows cannot be booked.
@@ -9,14 +9,14 @@
 * User will receive booking details via email.
 
 
-##Admin
+## Admin
 
 
 * Admin can add movies with shows with additional information
 * Admin can see list of bookings with user details. 
 
 
-#Credentials
+# Credentials
 
 
 * User Login -
